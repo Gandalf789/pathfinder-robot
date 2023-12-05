@@ -11,17 +11,20 @@ int main(int argc, char **argv) {
         printf("[^] = %.2f\n", front_sensors());
         printf("[<] = %.2f\n", left_sensors());
         printf("[>] = %.2f\n", right_sensors());
-        if(front_sensors() > 150 && right_sensors() > 130 && left_sensors() < 130){
+
+        //It does not work currently, it might work with some tweaking of the threshold values
+
+        if(((front_sensors() > 160) && (right_sensors() > 160)) && (left_sensors() < 140)){
             go_left();
         }
-        if(front_sensors() > 150 && right_sensors() < 130 && left_sensors() > 130){
+        if(((front_sensors() > 160) && (right_sensors() < 140)) && (left_sensors() > 160)){
             go_right();
         }
-        if(front_sensors() < 150 || (right_sensors() > 160 && left_sensors() > 160)){
+        if((front_sensors() < 140) || ((right_sensors() > 160) && (left_sensors() > 160))){
             go_forward(0.8);
         }
-        if(front_sensors() > 150 && right_sensors() > 150 && left_sensors() > 150){
-            go_backwards(0.8);
+        if((front_sensors() > 160) && ((right_sensors() < 140) && (left_sensors() < 140))){
+            go_left();
         }
         printf("\n--------\n");
     }

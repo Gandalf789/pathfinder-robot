@@ -8,9 +8,9 @@
 /*Movement*/
 void go_forward(float);
 void go_backwards(float);
-void stop();
 void go_left();
 void go_right();
+void stop();
 
 /*Proximity sensors*/
 double front_sensors();

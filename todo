@@ -1,0 +1,6 @@
+1.When a prox sensor detects something on
+the left side it is going to activate the go_left()
+function, instead of going far from the obstacle
+
+2.We must try to make the detection of the obstacles by sensors on that part so that we
+know in which part should we steer an in which not to

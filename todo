@@ -4,3 +4,63 @@ function, instead of going far from the obstacle
 
 2.We must try to make the detection of the obstacles by sensors on that part so that we
 know in which part should we steer an in which not to
+
+It takes 3.34 rad for the epuck to make a 180 degrees turn
+approx 6.9 for a 360
+
+the follow_left() system should do only one movement action at a time (ex: go_forward, go_left, etc.)
+
+
+makin a struct to represent different types of walls
+
+
+
+
+hell yeah bby we have gps
+
+so, Im thhinking we should go more old school and not use a gps, and instead use
+a pen to draw where the robot has been, and try to follow that line with a distance sensor
+below the robot.
+
+I think it is better if we would do a a system of only two cases : (0 1)
+                                                                    0 1
+                                                                    1 0
+
+So I think our best shot at completing a maze is by wall following.
+By wall following you will gennerally have two routes that get you to the finish(the left or the right wall)
+So we'll need to make the robot recognize when arun has ended and another one has begun, so that
+at the end it can tell what was the shourtest route
+
+Yooo deci
+
+it follows the wall on the left side and then when it arives on
+
+
+//        if(front_wall == true){
+              printf("%s<%d%s\n", ANSI_BOLD, ANSI_CLEAR_CONSOLE(), ANSI_RESET);
+              left_speed = MAX_SPEED;
+              right_speed = -MAX_SPEED;
+          }
+          else{
+              if(left_wall == true){
+                  printf("%s^%d%s\n", ANSI_BOLD, ANSI_CLEAR_CONSOLE(), ANSI_RESET);
+                 left_speed = MAX_SPEED;
+                 right_speed = MAX_SPEED;
+              }
+              else{
+                  printf("%s<<<%d%s\n", ANSI_BOLD, ANSI_CLEAR_CONSOLE(), ANSI_RESET);
+                  left_speed = MAX_SPEED/8;
+                  right_speed = MAX_SPEED;
+              }
+              if(left_corner == true){
+                  printf("%s>>>%d%s\n", ANSI_BOLD, ANSI_CLEAR_CONSOLE(), ANSI_RESET);
+                  left_speed = MAX_SPEED;
+                  right_speed = MAX_SPEED/8;
+              }
+
+          }
+
+
+we must do something to reset the distance counter once it hits the black
+square
+ make odometry private

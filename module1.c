@@ -1,24 +1,28 @@
 //
 // Created by timo on 11/26/23.
 //
+
 #include <stdio.h>
-#include <stdlib.h>
+#include <math.h>
 #include <robot.h>
 #include <motor.h>
 #include <distance_sensor.h>
 #include <utils/ansi_codes.h>
-#include <led.h>
-#include <gyro.h>
+#include <position_sensor.h>
+
+
 
 //Constants
 #define TIME_STEP 64
 #define MAX_SPEED 6.28
-#define DESTINATION 290
+#define WHEEL_RADIUS 0.02
+//#define AXLE_LENGTH 0.052
+
 
 //Prototypes for module-only functions
 double *init_prox_sensors();
-WbDeviceTag init_right_motor();
-WbDeviceTag init_left_motor();
+void PrintAction(int);
+
 
 
 //Initializations and tagging functions
@@ -57,6 +61,10 @@ double *init_prox_sensors(){
     //Returns an array with all the sensors values
     return sensor_values;
 }
+
+
+/*Motors initialization*/
+
 /*Initialize the right motor and sets the position to INFINITY*/
 WbDeviceTag init_right_motor(){
     WbDeviceTag right_motor = wb_robot_get_device("right wheel motor");
@@ -70,58 +78,148 @@ WbDeviceTag init_left_motor(){
     return left_motor;
 }
 
-//Movement control functions
 
-/*Sets a speed and moves the robot forward*/
-void go_forward(float speed){
-    printf(" %sgoing forward%s\n", ANSI_GREEN_BACKGROUND, ANSI_RESET);
-    wb_motor_set_velocity(init_left_motor(), speed * MAX_SPEED);
-    wb_motor_set_velocity(init_right_motor(), speed * MAX_SPEED);
+/*Initializes and assigns the position sensor*/
+
+WbDeviceTag init_left_pos(){
+    WbDeviceTag left_position = wb_robot_get_device("left wheel sensor");
+    wb_position_sensor_enable(left_position, TIME_STEP);
+    return left_position;
 }
-/*Sets a speed and moves the robot backwards*/
-void go_backwards(float speed){
-    printf(" %sgoing backwards%s\n", ANSI_YELLOW_BACKGROUND, ANSI_RESET);
-    wb_motor_set_velocity(init_left_motor(), -speed * MAX_SPEED);
-    wb_motor_set_velocity(init_right_motor(), -speed * MAX_SPEED);
+WbDeviceTag init_right_pos(){
+    WbDeviceTag right_position = wb_robot_get_device("right wheel sensor");
+    wb_position_sensor_enable(right_position, TIME_STEP);
+    return right_position;
 }
-/*Moves left using velocity control*/
-void go_left(){
-    printf(" %sgoing left%s\n", ANSI_BLUE_BACKGROUND, ANSI_RESET);
-    wb_motor_set_velocity(init_left_motor(), 0.4 * MAX_SPEED);
-    wb_motor_set_velocity(init_right_motor(), -0.4 * MAX_SPEED);
-}
-/*Moves right using velocity control*/
-void go_right(){
-    printf(" %sgoing right%s\n", ANSI_CYAN_BACKGROUND, ANSI_RESET);
-    wb_motor_set_velocity(init_left_motor(), -0.4 * MAX_SPEED);
-    wb_motor_set_velocity(init_right_motor(), 0.4 * MAX_SPEED);
-}
+
 /*Completely stops the robot*/
-void stop(){
-    WbDeviceTag led1 = wb_robot_get_device("led0");
-    wb_motor_set_velocity(init_right_motor(), 0);
-    wb_motor_set_velocity(init_left_motor(), 0);
-    printf(" %sstoped%s\n", ANSI_RED_BACKGROUND, ANSI_RESET);
-    wb_led_set(led1, 1);//turns on a led
+void stop(WbDeviceTag left_motor, WbDeviceTag right_motor){
+    wb_motor_set_velocity(left_motor, 0);
+    wb_motor_set_velocity(right_motor, 0);
+    printf("%s%s[<][^][>]%s\n--------%c\n", ANSI_BOLD, ANSI_RED_FOREGROUND, ANSI_RESET, ANSI_CLEAR_CONSOLE());
 }
 
-//Specific sensors outputs functions
+/*Specific movement functions*/
+void turn_left( WbDeviceTag left_motor, WbDeviceTag right_motor){
+    wb_motor_set_velocity(left_motor, MAX_SPEED/2);
+    wb_motor_set_velocity(right_motor, -MAX_SPEED/2);
+}
+void turn_right( WbDeviceTag left_motor, WbDeviceTag right_motor){
+    wb_motor_set_velocity(left_motor, -MAX_SPEED/2);
+    wb_motor_set_velocity(right_motor, MAX_SPEED/2);
+}
+void turn_corner_left( WbDeviceTag left_motor, WbDeviceTag right_motor){
+    wb_motor_set_velocity(left_motor, MAX_SPEED/8);
+    wb_motor_set_velocity(right_motor, MAX_SPEED);
+}
+void turn_corner_right( WbDeviceTag left_motor, WbDeviceTag right_motor){
+    wb_motor_set_velocity(left_motor, MAX_SPEED);
+    wb_motor_set_velocity(right_motor, MAX_SPEED/8);
+}
+void forward(WbDeviceTag left_motor, WbDeviceTag right_motor){
+    wb_motor_set_velocity(left_motor, MAX_SPEED);
+    wb_motor_set_velocity(right_motor, MAX_SPEED);
+}
 
-/*Takes the values of the 2 sensors up front and returns their sum*/
-double front_sensors(){
-    return (*(init_prox_sensors()) + *(init_prox_sensors() + 7));
-    //A value above 160 means an obstacle
+
+/*Main movement functions*/
+
+void follow_left(int threshold_value, WbDeviceTag left_motor, WbDeviceTag right_motor){
+    double *snsr_ptr = init_prox_sensors();//gets the sensor data
+
+    if( *(snsr_ptr + 7) > threshold_value){
+        PrintAction(0);
+        turn_left(left_motor, right_motor);
+    }
+    else{
+        if(*(snsr_ptr + 5) > threshold_value){
+            PrintAction(2);
+            forward(left_motor, right_motor);
+        }
+        else{
+            PrintAction(0);
+            turn_corner_left(left_motor, right_motor);
+        }
+        if(*(snsr_ptr + 6) > threshold_value){
+            PrintAction(1);
+            turn_corner_right(left_motor, right_motor);
+        }
+    }
 }
-/*Takes the values of the 2 sensors in the back and returns their sum*/
-double back_sensors(){
-    return (*(init_prox_sensors() + 3) + *(init_prox_sensors() + 4));
+void follow_right(int threshold_value, WbDeviceTag left_motor, WbDeviceTag right_motor){
+    double *snsr_ptr = init_prox_sensors();//gets the sensor data
+
+    if( *(snsr_ptr + 0) > threshold_value){
+        PrintAction(1);
+        turn_right(left_motor, right_motor);
+    }
+    else{
+        if(*(snsr_ptr + 2) > threshold_value){
+            PrintAction(2);
+            forward(left_motor, right_motor);
+        }
+        else{
+            PrintAction(1);
+            turn_corner_right(left_motor, right_motor);
+        }
+        if(*(snsr_ptr + 1) > threshold_value){
+            PrintAction(0);
+            turn_corner_left(left_motor, right_motor);
+        }
+    }
 }
-/*Takes the values of the 2 sensors on the left and returns their sum*/
-double left_sensors(){
-    return (*(init_prox_sensors() + 1) + *(init_prox_sensors() + 2));
+
+/*It prints the arrows, shoing the movement*/
+void PrintAction(int action){// action = 0 for <, 1 for >, 2 for ^
+    switch (action) {
+        case 0:
+            printf("%s%s[<]%s[^][>]\n--------%c\n", ANSI_BOLD, ANSI_GREEN_FOREGROUND, ANSI_RESET, ANSI_CLEAR_CONSOLE());
+            break;
+        case 1:
+            printf("%s[<][^]%s[>]%s\n--------%c\n", ANSI_BOLD,ANSI_GREEN_FOREGROUND,ANSI_RESET, ANSI_CLEAR_CONSOLE());
+            break;
+        case 2:
+            printf("%s[<]%s[^]%s[>]\n--------%c\n", ANSI_BOLD, ANSI_GREEN_FOREGROUND,ANSI_RESET, ANSI_CLEAR_CONSOLE());
+            break;
+        default:
+            puts("");
+            break;
+    }
 }
-/*Takes the values of the 2 sensors on the right and returns their sum*/
-double right_sensors(){
-    return (*(init_prox_sensors() + 5) + *(init_prox_sensors() + 6));
+
+double odometry(WbDeviceTag left_position_sensor, WbDeviceTag right_position_sensor) {
+    double l = wb_position_sensor_get_value(left_position_sensor);
+    double r = wb_position_sensor_get_value(right_position_sensor);
+    double dl = l * WHEEL_RADIUS;         // distance covered by left wheel in meter
+    double dr = r * WHEEL_RADIUS;         // distance covered by right wheel in meter
+    return (dl + dr)/2;
 }
+
+double *dist_calc(WbDeviceTag line_sensor, int threshold, WbDeviceTag left_pos_sensor, WbDeviceTag right_pos_sensor){
+    double distance = odometry(left_pos_sensor, right_pos_sensor);
+    double ir_value = wb_distance_sensor_get_value(line_sensor);
+    static double distArray[3] = {0};
+    static int i = 0;
+    if(ir_value > threshold && ir_value != 1000){
+        i++;
+        switch (i) {
+            case 1:
+                distArray[0] = distance;
+                break;
+            case 2:
+                distArray[1] = distance - distArray[0];
+                break;
+            case 6:
+                distArray[2] = 1;
+                break;
+            default:
+                break;
+        }
+    }
+    return distArray;
+}
+
+
+
+
 

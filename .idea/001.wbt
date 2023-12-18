@@ -1,0 +1,557 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/samples/robotbenchmark/maze_runner/protos/MazeBlock.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  fieldOfView 1
+  orientation 0.5376289599529308 -0.4863463755298113 -0.6887832056815449 4.251928333936986
+  position 0.13066955157718674 -0.30480371664094547 0.5129552822099508
+  follow "e-puck"
+  followType "None"
+}
+TexturedBackground {
+  texture "empty_office"
+  luminosity 0.4
+}
+TexturedBackgroundLight {
+}
+E-puck {
+  translation 0.06 -0.17 0.0001
+  rotation 0 0 1 1.5708
+  controller "Comenzi"
+  groundSensorsSlot [
+    DistanceSensor {
+      translation 0.0197838 0 0.0029331
+      rotation 0 -1 0 -1.4236103061004253
+      name "ir"
+      rotationStep 0.2618
+      type "infra-red"
+      aperture 1.8
+    }
+  ]
+}
+Solid {
+  translation 0.13 -0.14 1e-05
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+        texture ImageTexture {
+          url [
+            "Black_image.jpg"
+          ]
+        }
+      }
+      geometry DEF paper Plane {
+        size 0.08 0.008
+      }
+    }
+  ]
+  name "black(1)"
+}
+Solid {
+  translation -0.16 1.81 1e-05
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+        texture ImageTexture {
+          url [
+            "Black_image.jpg"
+          ]
+        }
+      }
+      geometry DEF paper Plane {
+        size 0.08 0.008
+      }
+    }
+  ]
+  name "black(2)"
+}
+Group {
+  children [
+    MazeBlock {
+      name "maze block(1)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.19 -0.18 0
+      name "maze block(80)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0 -0.21 0
+      name "maze block(81)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0 0.24 0
+      name "maze block(13)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0 0.45 0
+      name "maze block(14)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0 0.69 0
+      name "maze block(16)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0 0.9 0
+      name "maze block(17)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.06 1.26 0
+      name "maze block(72)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.3 1.26 0
+      name "maze block(74)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.39 0.24 0
+      name "maze block(3)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.15 0.48 0
+      name "maze block(11)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.15 0.69 0
+      name "maze block(12)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.15 0.9 0
+      name "maze block(69)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.39 0.66 0
+      name "maze block(9)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.39 0.87 0
+      name "maze block(65)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.39 1.08 0
+      name "maze block(67)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.39 1.29 0
+      name "maze block(68)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.6 0.24 0
+      name "maze block(6)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.81 0.03 0
+      name "maze block(21)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.81 0.24 0
+      name "maze block(22)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.81 0.45 0
+      name "maze block(23)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.81 0.66 0
+      name "maze block(24)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.81 0.9 0
+      name "maze block(26)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.81 1.11 0
+      name "maze block(27)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.81 1.35 0
+      name "maze block(29)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.63 1.35 0
+      name "maze block(32)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.21 1.56 0
+      name "maze block(34)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.42 1.56 0
+      name "maze block(38)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.21 1.77 0
+      name "maze block(83)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.03 1.77 0
+      name "maze block(84)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.84 1.56 0
+      name "maze block(41)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.84 1.35 0
+      name "maze block(42)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.84 1.14 0
+      name "maze block(43)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.84 0.93 0
+      name "maze block(44)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.84 0.72 0
+      name "maze block(49)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.84 0.51 0
+      name "maze block(50)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.84 0.3 0
+      name "maze block(56)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.84 0.09 0
+      name "maze block(57)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.42 0.54 0
+      name "maze block(54)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.21 0.3 0
+      name "maze block(62)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.81 1.56 0
+      name "maze block(30)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.6 0.46 0
+      name "maze block(7)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.0899999 0.12 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(2)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.3 0.12 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(4)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.3 -0.09 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(18)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.12 -0.3 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(82)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.51 -0.09 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(19)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.72 -0.09 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(20)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.51 0.12 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(5)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.51 0.57 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(8)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.51 0.96 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(66)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.27 1.17 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(70)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.06 1.17 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(71)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.42 1.17 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(75)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.63 1.17 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(76)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.18 1.38 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(73)"
+      length 0.25
+    }
+    MazeBlock {
+      translation 0.72 0.78 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(25)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.72 1.23 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(28)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.72 1.68 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(31)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.51 1.68 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(33)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.3 1.68 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(35)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.33 1.68 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(36)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.12 1.89 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(85)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.54 1.68 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(40)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.75 1.68 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(37)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.51 1.44 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(39)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.09 1.68 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(47)"
+      length 0.2
+    }
+    MazeBlock {
+      translation 0.27 0.57 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(10)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.09 0.57 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(15)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.72 0.84 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(45)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.72 0.42 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(51)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.72 5.19723e-15 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(58)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.51 2.14118e-07 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(59)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.3 4.28234e-07 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(60)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.1 6.32154e-07 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(61)"
+      length 0.16
+    }
+    MazeBlock {
+      translation -0.51 0.42 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(52)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.3 0.42 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(53)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.33 0.21 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(63)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.54 0.21 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(64)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.51 0.84 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(46)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.54 0.63 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(55)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.3 0.84 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(48)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.12 0.99 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(77)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.33 0.99 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(78)"
+      length 0.2
+    }
+    MazeBlock {
+      translation -0.54 0.99 0
+      rotation 0 0 1 -1.5707953071795862
+      name "maze block(79)"
+      length 0.2
+    }
+  ]
+}
+RectangleArena {
+  translation 0 1.49 0
+  floorSize 5 5
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+}

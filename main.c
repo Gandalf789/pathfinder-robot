@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <robot.h>
-#include <distance_sensor.h>
 #include "module1.h"
 
 /*Constants*/
@@ -17,15 +16,14 @@ int main(int argc, char **argv) {
 
 
     /*Initializes and assigns tags for the motors*/
-    WbDeviceTag left_motor = init_left_motor();
-    WbDeviceTag right_motor = init_right_motor();
+    WbDeviceTag left_motor = init_motor_left();
+    WbDeviceTag right_motor = init_motor_right();
 
 
     /*Starts position sensors and IR sensor*/
-    WbDeviceTag left_pos = init_left_pos();
-    WbDeviceTag right_pos = init_right_pos();
-    WbDeviceTag color_sensor = wb_robot_get_device("ir");
-    wb_distance_sensor_enable(color_sensor, TIME_STEP);
+    WbDeviceTag left_pos = init_pos_left();
+    WbDeviceTag right_pos = init_pos_right();
+    WbDeviceTag color_sensor = init_ir();
 
 
    /*Main while loop*/

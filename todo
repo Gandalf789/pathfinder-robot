@@ -24,7 +24,6 @@ below the robot.
 
 I think it is better if we would do a a system of only two cases : (0 1)
                                                                     0 1
-                                                                    1 0
 
 So I think our best shot at completing a maze is by wall following.
 By wall following you will gennerally have two routes that get you to the finish(the left or the right wall)

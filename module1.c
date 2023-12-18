@@ -1,5 +1,5 @@
 //
-// Created by timo on 11/26/23.
+// 11/26/23.
 //
 
 #include <stdio.h>
@@ -66,13 +66,13 @@ double *init_prox_sensors(){
 /*Motors initialization*/
 
 /*Initialize the right motor and sets the position to INFINITY*/
-WbDeviceTag init_right_motor(){
+WbDeviceTag init_motor_right(){
     WbDeviceTag right_motor = wb_robot_get_device("right wheel motor");
     wb_motor_set_position(right_motor,  INFINITY);
     return right_motor;
 }
 /*Initialize the left motor and sets the position to INFINITY*/
-WbDeviceTag init_left_motor(){
+WbDeviceTag init_motor_left(){
     WbDeviceTag left_motor = wb_robot_get_device("left wheel motor");
     wb_motor_set_position(left_motor,INFINITY );
     return left_motor;
@@ -81,16 +81,25 @@ WbDeviceTag init_left_motor(){
 
 /*Initializes and assigns the position sensor*/
 
-WbDeviceTag init_left_pos(){
+WbDeviceTag init_pos_left(){
     WbDeviceTag left_position = wb_robot_get_device("left wheel sensor");
     wb_position_sensor_enable(left_position, TIME_STEP);
     return left_position;
 }
-WbDeviceTag init_right_pos(){
+WbDeviceTag init_pos_right(){
     WbDeviceTag right_position = wb_robot_get_device("right wheel sensor");
     wb_position_sensor_enable(right_position, TIME_STEP);
     return right_position;
 }
+
+
+/*Initializes and assigns the IR sensor*/
+WbDeviceTag init_ir(){
+    WbDeviceTag ir_sensor = wb_robot_get_device("ir");
+    wb_distance_sensor_enable(ir_sensor, TIME_STEP);
+    return ir_sensor;
+}
+
 
 /*Completely stops the robot*/
 void stop(WbDeviceTag left_motor, WbDeviceTag right_motor){
@@ -153,15 +162,19 @@ void follow_right(int threshold_value, WbDeviceTag left_motor, WbDeviceTag right
         PrintAction(1);
         turn_right(left_motor, right_motor);
     }
+
     else{
+
         if(*(snsr_ptr + 2) > threshold_value){
             PrintAction(2);
             forward(left_motor, right_motor);
         }
+
         else{
             PrintAction(1);
             turn_corner_right(left_motor, right_motor);
         }
+
         if(*(snsr_ptr + 1) > threshold_value){
             PrintAction(0);
             turn_corner_left(left_motor, right_motor);
@@ -169,7 +182,7 @@ void follow_right(int threshold_value, WbDeviceTag left_motor, WbDeviceTag right
     }
 }
 
-/*It prints the arrows, shoing the movement*/
+/*It prints the arrows, showing the movement*/
 void PrintAction(int action){// action = 0 for <, 1 for >, 2 for ^
     switch (action) {
         case 0:
@@ -187,6 +200,7 @@ void PrintAction(int action){// action = 0 for <, 1 for >, 2 for ^
     }
 }
 
+/*Odometry for the robot*/
 double odometry(WbDeviceTag left_position_sensor, WbDeviceTag right_position_sensor) {
     double l = wb_position_sensor_get_value(left_position_sensor);
     double r = wb_position_sensor_get_value(right_position_sensor);
@@ -195,6 +209,7 @@ double odometry(WbDeviceTag left_position_sensor, WbDeviceTag right_position_sen
     return (dl + dr)/2;
 }
 
+/*Calculates and asisgns the values for the first and second run to an array of doubles*/
 double *dist_calc(WbDeviceTag line_sensor, int threshold, WbDeviceTag left_pos_sensor, WbDeviceTag right_pos_sensor){
     double distance = odometry(left_pos_sensor, right_pos_sensor);
     double ir_value = wb_distance_sensor_get_value(line_sensor);

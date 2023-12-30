@@ -4,11 +4,11 @@
 
 
 ## Contents
-1. Installing Webots
-2. Extracting the .zip file
-1. Opening the world file
-2. Before running the simulation
-3. Running the simulation
+1. [Installing Webots](#1-installing-webots)
+2. [Extracting the .zip file](#2-extracting-the-zip-file)
+1. [Opening the world file](#3-opening-the-world-file)
+2. [Before running the simulation](#4-before-running-the-simulation)
+3. [Running the simulation](#5-running-the-simulation)
 
 
   ## 1. Installing Webots

@@ -11,8 +11,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 1
-  orientation 0.5376289599529308 -0.4863463755298113 -0.6887832056815449 4.251928333936986
-  position 0.13066955157718674 -0.30480371664094547 0.5129552822099508
+  orientation 0.5550868186292858 -0.5774417643736955 -0.5986982817254549 4.251663930628999
+  position 0.22913640299905558 -0.629168883202819 3.157986067048663
   follow "e-puck"
   followType "None"
 }
@@ -23,9 +23,9 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 E-puck {
-  translation 0.06 -0.17 0.0001
+  translation 0.06 -0.03 0.0001
   rotation 0 0 1 1.5708
-  controller "Comenzi"
+  controller "<extern>"
   groundSensorsSlot [
     DistanceSensor {
       translation 0.0197838 0 0.0029331
@@ -38,7 +38,8 @@ E-puck {
   ]
 }
 Solid {
-  translation 0.13 -0.14 1e-05
+  translation 0.15 -0.38 1e-05
+  rotation 0 0 1 3.14159
   children [
     Shape {
       appearance Appearance {
@@ -51,14 +52,14 @@ Solid {
         }
       }
       geometry DEF paper Plane {
-        size 0.08 0.008
+        size 0.04 0.008
       }
     }
   ]
   name "black(1)"
 }
 Solid {
-  translation -0.16 1.81 1e-05
+  translation -0.16 2.04 1e-05
   children [
     Shape {
       appearance Appearance {
@@ -71,7 +72,7 @@ Solid {
         }
       }
       geometry DEF paper Plane {
-        size 0.08 0.008
+        size 0.04 0.008
       }
     }
   ]
@@ -84,13 +85,13 @@ Group {
       length 0.2
     }
     MazeBlock {
-      translation 0.19 -0.18 0
-      name "maze block(80)"
+      translation 0 -0.21 0
+      name "maze block(81)"
       length 0.2
     }
     MazeBlock {
-      translation 0 -0.21 0
-      name "maze block(81)"
+      translation 0 -0.42 0
+      name "maze block(80)"
       length 0.2
     }
     MazeBlock {
@@ -189,7 +190,7 @@ Group {
       length 0.2
     }
     MazeBlock {
-      translation 0.81 0.9 0
+      translation 0.81 0.89 0
       name "maze block(26)"
       length 0.2
     }
@@ -219,14 +220,24 @@ Group {
       length 0.2
     }
     MazeBlock {
-      translation -0.21 1.77 0
-      name "maze block(83)"
+      translation -0.03 1.98 0
+      name "maze block(87)"
       length 0.2
     }
     MazeBlock {
       translation -0.03 1.77 0
       name "maze block(84)"
       length 0.2
+    }
+    MazeBlock {
+      translation -0.22 1.88 0
+      name "maze block(83)"
+      length 0.4
+    }
+    MazeBlock {
+      translation 0.21 -0.3 0
+      name "maze block(86)"
+      length 0.4
     }
     MazeBlock {
       translation -0.84 1.56 0
@@ -301,25 +312,25 @@ Group {
       length 0.2
     }
     MazeBlock {
-      translation 0.3 -0.09 0
+      translation 0.32 -0.09 0
       rotation 0 0 1 -1.5707953071795862
       name "maze block(18)"
       length 0.2
     }
     MazeBlock {
-      translation 0.12 -0.3 0
+      translation 0.11 -0.51 0
       rotation 0 0 1 -1.5707953071795862
       name "maze block(82)"
       length 0.2
     }
     MazeBlock {
-      translation 0.51 -0.09 0
+      translation 0.53 -0.09 0
       rotation 0 0 1 -1.5707953071795862
       name "maze block(19)"
       length 0.2
     }
     MazeBlock {
-      translation 0.72 -0.09 0
+      translation 0.74 -0.09 0
       rotation 0 0 1 -1.5707953071795862
       name "maze block(20)"
       length 0.2
@@ -337,7 +348,7 @@ Group {
       length 0.2
     }
     MazeBlock {
-      translation 0.51 0.96 0
+      translation 0.51 0.98 0
       rotation 0 0 1 -1.5707953071795862
       name "maze block(66)"
       length 0.2
@@ -409,7 +420,7 @@ Group {
       length 0.2
     }
     MazeBlock {
-      translation -0.12 1.89 0
+      translation -0.12 2.09 0
       rotation 0 0 1 -1.5707953071795862
       name "maze block(85)"
       length 0.2

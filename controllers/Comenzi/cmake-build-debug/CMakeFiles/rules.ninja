@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/timo/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/timo/Documents/Robot1/controllers/Comenzi -B/home/timo/Documents/Robot1/controllers/Comenzi/cmake-build-debug
+  command = /home/timo/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/timo/Documents/Robot1/controllers/Comenzi/controllers/Comenzi -B/home/timo/Documents/Robot1/controllers/Comenzi/controllers/Comenzi/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

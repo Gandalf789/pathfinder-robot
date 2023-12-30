@@ -4,7 +4,11 @@ get_filename_component(MyWebotsController ${CMAKE_SOURCE_DIR} NAME)
 project(${MyWebotsController})
 
 file(GLOB C_SOURCES *.c)
-set(SOURCES ${C_SOURCES})
+set(SOURCES ${C_SOURCES}
+        logic.c
+        movement.c
+        sensors.c
+        odometry.c)
 
 set(WEBOTS_HOME "/usr/local/webots")
 

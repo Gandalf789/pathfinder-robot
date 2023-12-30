@@ -1,4 +1,4 @@
-# Install script for directory: /home/timo/Documents/Robot1/controllers/Comenzi
+# Install script for directory: /home/timo/Documents/Robot1/controllers/Comenzi/controllers/Comenzi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/timo/Documents/Robot1/controllers/Comenzi/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/timo/Documents/Robot1/controllers/Comenzi/controllers/Comenzi/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

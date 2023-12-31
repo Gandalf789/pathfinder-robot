@@ -1,3 +1,0 @@
-/home/timo/Documents/Robot1/controllers/Comenzi/controllers/Comenzi/cmake-build-debug/CMakeFiles/Comenzi.dir
-/home/timo/Documents/Robot1/controllers/Comenzi/controllers/Comenzi/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/timo/Documents/Robot1/controllers/Comenzi/controllers/Comenzi/cmake-build-debug/CMakeFiles/rebuild_cache.dir

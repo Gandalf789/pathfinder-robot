@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -rdynamic CMakeFiles/Comenzi.dir/main.c.o CMakeFiles/Comenzi.dir/module1.c.o -o Comenzi   -L/usr/local/webots/lib/controller  -Wl,-rpath,/usr/local/webots/lib/controller -lm -lController -lCppController 

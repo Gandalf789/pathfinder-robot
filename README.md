@@ -9,6 +9,7 @@
 1. [Opening the world file](#3-opening-the-world-file)
 2. [Before running the simulation](#4-before-running-the-simulation)
 3. [Running the simulation](#5-running-the-simulation)
+4. [Editing the source code](#6-editing-the-source-code)
 
 
   ## 1. Installing Webots
@@ -46,3 +47,11 @@
   A console should pop-up in the bottom of the screen, if not, it can be activated using _Ctrl+N_
 
   **Running the simulation**![simulation](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/74df26d9-dfe5-4424-a9a6-a5de3da5f5f5)
+
+  ## 6. Editing the source code
+
+  If you want to change the source code, select _edit_ from the controller menu ![Screenshot from 2024-01-01 17-59-08](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/f09964f0-7f17-4ec0-9f16-5c34423ce7d2)
+
+- Select the file you wish to edit then press _open_
+- Edit the code then build the code by pressing the ![Screenshot from 2024-01-01 18-03-24](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/fa7bdd2b-cd40-4297-bbd9-d2ff47bf10c8) button
+- Press `Reset` the start the simulation

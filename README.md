@@ -35,8 +35,9 @@
 
      
   ## 4. Before running the simulation
-  be sure to give running permission to the executable of the code.
-  To do this simply 
+  In some cases it may be neccesary to give running permission to the executable of the code manually.
+  
+  If you run the simulation and the Webots console prompts you to do this:
   - open up a console
   - type `$cd /location_of_the_extracted_folder/controllers/Comenzi`
   - then to give executing permission type `chmod u+x Comenzi`
@@ -52,7 +53,7 @@
   
   ## 6. How it works
 
--The robot must always begin from the left side (the left wall).
+-The robot **must always** begin from the left side (the left wall).
 
 -The start line and the finish line are physically denoted by two small black tapes on the floor.
 

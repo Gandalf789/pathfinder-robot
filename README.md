@@ -53,5 +53,5 @@
   If you want to change the source code, select _edit_ from the controller menu ![Screenshot from 2024-01-01 17-59-08](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/f09964f0-7f17-4ec0-9f16-5c34423ce7d2)
 
 - Select the file you wish to edit then press _open_
-- Edit the code then build the code by pressing the ![Screenshot from 2024-01-01 18-03-24](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/fa7bdd2b-cd40-4297-bbd9-d2ff47bf10c8) button
+- Edit the code then build the code by pressing the ![Screenshot from 2024-01-01 18-03-24](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/fa7bdd2b-cd40-4297-bbd9-d2ff47bf10c8) button ( don't forget to save it before)
 - Press `Reset` the start the simulation

@@ -2,8 +2,8 @@
 // Created by timo on 12/30/23.
 //
 
-#include <position_sensor.h>
-#include <distance_sensor.h>
+#include <webots/position_sensor.h>
+#include <webots/distance_sensor.h>
 
 /*Constants*/
 #define WHEEL_RADIUS 0.02

@@ -9,8 +9,9 @@
 1. [Opening the world file](#3-opening-the-world-file)
 2. [Before running the simulation](#4-before-running-the-simulation)
 3. [Running the simulation](#5-running-the-simulation)
-4. [Editing the source code](#6-editing-the-source-code)
-5. [Structure of the code](#7-structure-of-the-code)
+4. [How it works](#6-how-it-works)
+5. [Editing the source code](#6-editing-the-source-code)
+6. [Structure of the code](#7-structure-of-the-code)
 
 
   ## 1. Installing Webots
@@ -48,7 +49,19 @@
   A console should pop-up in the bottom of the screen, if not, it can be activated using _Ctrl+N_
 
   **Running the simulation**![simulation](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/74df26d9-dfe5-4424-a9a6-a5de3da5f5f5)
+  
+  ## 6. How it works
 
+-The robot must always begin from the left side (the left wall).
+
+-The start line and the finish line are physically denoted by two small black tapes on the floor.
+
+-It then goes along that left wall until the finish line, and then it comes back following the same left wall from the  beggining that is actually the right hand side wall taken from the start line.
+
+-When it arrives at the start line it know the distance if you take the left or the right wall, so for one final run towards the finish line it takes the shortest way found.
+
+-It then stops on the finish line showing on the console the length of the shortest path.
+  
   ## 6. Editing the source code
 
   If you want to change the source code, select _edit_ from the controller menu 

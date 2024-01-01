@@ -25,7 +25,7 @@ TexturedBackgroundLight {
 E-puck {
   translation 0.06 -0.03 0.0001
   rotation 0 0 1 1.5708
-  controller "<extern>"
+  controller "Comenzi"
   groundSensorsSlot [
     DistanceSensor {
       translation 0.0197838 0 0.0029331

@@ -65,7 +65,7 @@
 ###
 ###-----------------------------------------------------------------------------
 
-C_SOURCES = main.c logic. movement.c sensors.c odometry.c
+C_SOURCES = main.c logic.c movement.c sensors.c odometry.c
 
 ### Do not modify: this includes Webots global Makefile.include
 null :=

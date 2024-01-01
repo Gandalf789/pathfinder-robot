@@ -65,6 +65,8 @@
 ###
 ###-----------------------------------------------------------------------------
 
+C_SOURCES = main.c logic. movement.c sensors.c odometry.c
+
 ### Do not modify: this includes Webots global Makefile.include
 null :=
 space := $(null) $(null)

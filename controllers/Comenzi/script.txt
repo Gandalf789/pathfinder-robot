@@ -1,4 +1,0 @@
-Run the following command in terminal to give permission to execute
-(the Webots simulation won't work otherwise)
-
-$chmod u+x Comenzi

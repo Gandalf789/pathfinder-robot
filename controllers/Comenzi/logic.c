@@ -3,8 +3,8 @@
 //
 
 #include <stdio.h>
-#include <robot.h>
-#include <utils/ansi_codes.h>
+#include <webots/robot.h>
+#include <webots/utils/ansi_codes.h>
 
 
 //Prototypes from other modules used here

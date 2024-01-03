@@ -77,5 +77,6 @@
 
   The code is modularized in 4 different modules that are connected through an header file with the main source as shown below
   
-  
-![Screenshot from 2024-01-01 19-06-48](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/6fd194c0-4f13-4a8f-a1e3-b2d0fa1a5a1d)
+  ![Screenshot from 2024-01-03 18-58-52](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/17d790d0-54d1-4590-9de5-4cdac9422dcb)
+
+

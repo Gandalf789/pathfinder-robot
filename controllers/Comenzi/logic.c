@@ -5,17 +5,8 @@
 #include <stdio.h>
 #include <webots/robot.h>
 #include <webots/utils/ansi_codes.h>
-
-
-//Prototypes from other modules used here
-void turn_left(WbDeviceTag left_motor, WbDeviceTag right_motor);
-void turn_right(WbDeviceTag left_motor, WbDeviceTag right_motor);
-void turn_corner_left(WbDeviceTag left_motor, WbDeviceTag right_motor);
-void turn_corner_right(WbDeviceTag left_motor, WbDeviceTag right_motor);
-void forward(WbDeviceTag left_motor, WbDeviceTag right_motor);
-double *init_prox_sensors();
-
-
+#include "headers/movement.h"
+#include "headers/sensors.h"
 
 //Prototypes for module-only functions
 void PrintAction(int);

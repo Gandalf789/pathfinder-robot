@@ -2,9 +2,9 @@
 // Created by timo on 12/30/23.
 //
 
-#include <wrobot.h>
-#include <motor.h>
-#include <utils/ansi_codes.h>
+#include <webots/robot.h>
+#include <webots/motor.h>
+#include <webots/utils/ansi_codes.h>
 
 /*Constants*/
 #define MAX_SPEED 6.28

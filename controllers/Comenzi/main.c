@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include <webots/robot.h>
-#include "modules.h"
+#include "headers/odometry.h"
+#include "headers/logic.h"
+#include "headers/movement.h"
+#include "headers/sensors.h"
+
 
 /*Constants*/
 #define TIME_STEP 64
 #define MAX_SPEED 6.28
 #define WALL_THRESHOLD 88
 #define COLOR_THRESHOLD 135
+
 
 
 int main(int argc, char **argv) {

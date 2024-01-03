@@ -8,7 +8,11 @@ set(SOURCES ${C_SOURCES}
         logic.c
         movement.c
         sensors.c
-        odometry.c)
+        odometry.c
+        headers/movement.h
+        headers/sensors.h
+        headers/odometry.h
+        headers/logic.h)
 
 set(WEBOTS_HOME "/usr/local/webots")
 
@@ -18,7 +22,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
 # Linking directories and libraries from Webots
 link_directories(${WEBOTS_HOME}/lib/controller)
 set (LIBRARIES m ${CMAKE_SHARED_LIBRARY_PREFIX}Controller${CMAKE_SHARED_LIBRARY_SUFFIX} ${CMAKE_SHARED_LIBRARY_PREFIX}CppController${CMAKE_SHARED_LIBRARY_SUFFIX})
-include_directories(/usr/local/webots/include/controller/c/webots)
+include_directories(/usr/local/webots/include/controller/c)
 
 # Collect source file
 #set(SOURCES "/home/timo/Documents/Robot1/controllers/Comenzi/main.c"

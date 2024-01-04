@@ -83,4 +83,6 @@
   
   ![Screenshot from 2024-01-03 18-58-52](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/17d790d0-54d1-4590-9de5-4cdac9422dcb)
 
+  More about every module can be found [here](https://github.com/Gandalf789/pathfinder-robot/blob/master/controllers/README.md)
+
 

@@ -13,6 +13,7 @@
 5. [How it works](#6-how-it-works)
 6. [Editing the source code](#6-editing-the-source-code)
 7. [Structure of the code](#7-structure-of-the-code)
+8. [The enviroment](#8-the-enviroment)
 ---------
 
 
@@ -82,6 +83,12 @@
   The code is modularized in 4 different modules that are connected through an header file with the main source as shown below
   
   ![Screenshot from 2024-01-04 14-14-56](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/5e78930c-0322-4aa9-a774-ccc089953cfc)
+
+  ## 8. The enviroment
+
+  There are two world files included in the `worlds` folder, each one containing a maze.
+
+  More about the world files can be found [here]()
 
 
 

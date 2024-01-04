@@ -84,14 +84,13 @@
   
   ![Screenshot from 2024-01-04 14-14-56](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/5e78930c-0322-4aa9-a774-ccc089953cfc)
 
+  More about every module can be found [here](https://github.com/Gandalf789/pathfinder-robot/blob/master/controllers/README.md)
+
   ## 8. The enviroment
 
   There are two world files included in the `worlds` folder, each one containing a maze.
 
   More about the world files can be found [here]()
 
-
-
-  More about every module can be found [here](https://github.com/Gandalf789/pathfinder-robot/blob/master/controllers/README.md)
 
 

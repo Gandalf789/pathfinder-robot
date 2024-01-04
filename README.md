@@ -4,14 +4,17 @@
 
 
 ## Contents
+---------
 1. [Installing Webots](#1-installing-webots)
 2. [Extracting the .zip file](#2-extracting-the-zip-file)
 1. [Opening the world file](#3-opening-the-world-file)
 2. [Before running the simulation](#4-before-running-the-simulation)
 3. [Running the simulation](#5-running-the-simulation)
-4. [How it works](#6-how-it-works)
-5. [Editing the source code](#6-editing-the-source-code)
-6. [Structure of the code](#7-structure-of-the-code)
+5. [How it works](#6-how-it-works)
+6. [Editing the source code](#6-editing-the-source-code)
+7. [Structure of the code](#7-structure-of-the-code)
+---------
+
 
 
   ## 1. Installing Webots
@@ -55,13 +58,14 @@
 
 -The robot **must always** begin from the left side (the left wall).
 
--The start line and the finish line are physically denoted by two small black tapes on the floor.
+-The start line and the finish line are physically denoted by **two small black tapes** on the floor.
 
--It then goes along that left wall until the finish line, and then it comes back following the same left wall from the  beggining that is actually the right hand side wall taken from the start line.
+-The robot has four phases:
 
--When it arrives at the start line it know the distance if you take the left or the right wall, so for one final run towards the finish line it takes the shortest way found.
-
--It then stops on the finish line showing on the console the length of the shortest path.
+  1. Following the left wall from the **start** towards the **finish** line.
+  2. Once arrived at the finish line, it stores the distance from the start line to the finish using **left wall**. It then continues its run along the same left wall.
+  3. At the start line once again in stores the distance of the **right wall**.
+  4. A last run is made following the **shortest wall** found towards the finish line.
   
   ## 6. Editing the source code
 

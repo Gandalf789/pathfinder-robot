@@ -13,7 +13,8 @@
 
 As explained before, the following is the schematic of the structure of the code
 
-![Screenshot from 2024-01-03 18-58-52](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/15cf3726-084b-499f-8ad2-a99036611fdc)
+![Screenshot from 2024-01-04 14-14-56](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/24eab865-3ead-4716-a2fb-6df0494ccff7)
+
 
 
 ## 2.  Movement.c

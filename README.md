@@ -1,5 +1,5 @@
 # Pathfinding robot in a maze
-### <sub>Finding the shortest path using the wall-following method</sub>
+### <sub>Finding the shortest path outside a maze following a wall</sub>
 ## _Documentation_
 
 

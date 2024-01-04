@@ -9,3 +9,9 @@ The mazes are composed from blocks of `MazeBlock.proto`, that can be found
 The mazes were randomly generated on https://www.mazegenerator.net with the width and height otion of 8,
 
 then manually constructed, block by block, in Webots.
+
+### 2. Editing the world
+
+To edit the maze simply click on a block and move it with the arrows.
+
+For a more in depth documentation on this visit [this](https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment)

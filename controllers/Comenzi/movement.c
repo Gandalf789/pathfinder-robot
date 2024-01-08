@@ -65,3 +65,4 @@ void stop(WbDeviceTag left_motor, WbDeviceTag right_motor){
     wb_motor_set_velocity(right_motor, 0);
     printf("%s%s[<][^][>]%s\n--------%c\n", ANSI_BOLD, ANSI_RED_FOREGROUND, ANSI_RESET, ANSI_CLEAR_CONSOLE());
 }
+

@@ -63,3 +63,44 @@ it follows the wall on the left side and then when it arives on
 we must do something to reset the distance counter once it hits the black
 square
  make odometry private
+
+
+
+
+
+double *dist_calc(WbDeviceTag line_sensor, int threshold, WbDeviceTag left_pos_sensor, WbDeviceTag right_pos_sensor){
+    double distance = odometry(left_pos_sensor, right_pos_sensor);
+    double ir_value = wb_distance_sensor_get_value(line_sensor);
+    int elapsed_time = 0;
+    static double distArray[3] = {0};// stores the distances of every path
+    static int i = 0;
+    if(ir_value > threshold && ir_value != 1000){
+
+        /*The following block deactivates the IR sensor for a certain amount of
+         * time*/
+        while(elapsed_time < 160){
+            wb_robot_step(TIME_STEP);
+            elapsed_time += TIME_STEP;
+            deact_ir();
+        }
+        wb_distance_sensor_enable(line_sensor, TIME_STEP);
+        /*End of the block*/
+
+        i++;// Counts the amounts of time it has scanned a black band
+
+        switch (i) {
+            case 1:
+                distArray[0] = distance;
+                break;
+            case 2:
+                distArray[1] = distance - distArray[0];
+                break;
+            default:
+                break;
+        }
+        if(i >= 3){//if the counter is more than 3 that usually means that both walls have been measured and the fastest way has been browsed
+            distArray[2] = 1;
+        }
+    }
+    return distArray;
+}

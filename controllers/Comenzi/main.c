@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <webots/robot.h>
+#include <webots/distance_sensor.h>
 #include "headers/odometry.h"
 #include "headers/logic.h"
 #include "headers/movement.h"
@@ -9,7 +10,7 @@
 /*Constants*/
 #define TIME_STEP 64
 #define MAX_SPEED 6.28
-#define WALL_THRESHOLD 88
+#define WALL_THRESHOLD 80
 #define COLOR_THRESHOLD 135
 
 
@@ -40,6 +41,7 @@ int main(int argc, char **argv) {
 
             //Main movement function until the both distances are found
             follow_left(WALL_THRESHOLD, left_motor, right_motor);
+            printf("[IR]=%.2f\n", wb_distance_sensor_get_value(color_sensor));
 
 
 /*         Used only for seeing the actual numbers
@@ -58,7 +60,6 @@ int main(int argc, char **argv) {
             if(*(dist_ptr + 1) < *(dist_ptr)){
                 if(sharp_turn_counter == 0){
                     turn_sharp_right(left_motor, right_motor, 1000);
-                    printf("Sharp\n");
                     sharp_turn_counter++;
                 }
                 follow_right(WALL_THRESHOLD, left_motor, right_motor);
@@ -79,7 +80,7 @@ int main(int argc, char **argv) {
             }
 
         }
-        printf("%f\t%f\t%f\n", *(dist_ptr), *(dist_ptr + 1), *(dist_ptr + 2));
+        printf("[I] = %f\t[II] = %f\t\n", *(dist_ptr), *(dist_ptr + 1));
 
 
         printf("\n--------\n");
@@ -90,4 +91,6 @@ int main(int argc, char **argv) {
 
   return 0;
 }
+
+
 

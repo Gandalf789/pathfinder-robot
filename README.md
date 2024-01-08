@@ -1,17 +1,21 @@
 # Pathfinding robot in a maze
-### <sub>Finding the shortest path using the wall-following method</sub>
+### <sub>Finding the shortest path outside a maze following a wall</sub>
 ## _Documentation_
 
 
 ## Contents
+---------
 1. [Installing Webots](#1-installing-webots)
 2. [Extracting the .zip file](#2-extracting-the-zip-file)
 1. [Opening the world file](#3-opening-the-world-file)
 2. [Before running the simulation](#4-before-running-the-simulation)
 3. [Running the simulation](#5-running-the-simulation)
-4. [How it works](#6-how-it-works)
-5. [Editing the source code](#6-editing-the-source-code)
-6. [Structure of the code](#7-structure-of-the-code)
+5. [How it works](#6-how-it-works)
+6. [Editing the source code](#6-editing-the-source-code)
+7. [Structure of the code](#7-structure-of-the-code)
+8. [The enviroment](#8-the-enviroment)
+---------
+
 
 
   ## 1. Installing Webots
@@ -55,13 +59,14 @@
 
 -The robot **must always** begin from the left side (the left wall).
 
--The start line and the finish line are physically denoted by two small black tapes on the floor.
+-The start line and the finish line are physically denoted by **two small black tapes** on the floor.
 
--It then goes along that left wall until the finish line, and then it comes back following the same left wall from the  beggining that is actually the right hand side wall taken from the start line.
+-The robot has four phases:
 
--When it arrives at the start line it know the distance if you take the left or the right wall, so for one final run towards the finish line it takes the shortest way found.
-
--It then stops on the finish line showing on the console the length of the shortest path.
+  1. Following the left wall from the **start** towards the **finish** line.
+  2. Once arrived at the finish line, it stores the distance from the start line to the finish using **left wall**. It then continues its run along the same left wall.
+  3. At the start line once again in stores the distance of the **right wall**.
+  4. A last run is made following the **shortest wall** found towards the finish line.
   
   ## 6. Editing the source code
 
@@ -77,5 +82,15 @@
 
   The code is modularized in 4 different modules that are connected through an header file with the main source as shown below
   
-  
-![Screenshot from 2024-01-01 19-06-48](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/6fd194c0-4f13-4a8f-a1e3-b2d0fa1a5a1d)
+  ![Screenshot from 2024-01-04 14-14-56](https://github.com/Gandalf789/pathfinder-robot/assets/109030213/5e78930c-0322-4aa9-a774-ccc089953cfc)
+
+  More about every module can be found [here](https://github.com/Gandalf789/pathfinder-robot/blob/master/controllers/README.md)
+
+  ## 8. The enviroment
+
+  There are two world files included in the `worlds` folder, each one containing a maze.
+
+  More about the world files can be found [here]()
+
+
+

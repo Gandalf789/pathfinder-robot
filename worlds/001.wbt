@@ -28,7 +28,7 @@ E-puck {
   controller "Comenzi"
   groundSensorsSlot [
     DistanceSensor {
-      translation 0.0197838 0 0.0029331
+      translation 0 0 0.0029331
       rotation 0 -1 0 -1.4236103061004253
       name "ir"
       rotationStep 0.2618

@@ -1,6 +1,9 @@
-//
-// Created by timo on 1/3/24.
-//
+/****************************************************************
+ * odometry.h - Header file for the odometry module             *
+ * author: Timotei Ciupei                                       *
+ * version: 8/1/24                                              *
+ * updates: https://github.com/Gandalf789/pathfinder-robot      *
+ ****************************************************************/
 
 #ifndef COMENZI_ODOMETRY_H
 #define COMENZI_ODOMETRY_H

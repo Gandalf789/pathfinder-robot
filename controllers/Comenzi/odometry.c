@@ -1,8 +1,7 @@
-//
-// Created by timo on 12/30/23.
-//
+/*****************************************************************
+ * odometry.c - Measures the distances                           *
+ *****************************************************************/
 
-#include <stdio.h>
 #include <webots/robot.h>
 #include <webots/position_sensor.h>
 #include <webots/distance_sensor.h>

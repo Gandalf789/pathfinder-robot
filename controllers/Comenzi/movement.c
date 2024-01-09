@@ -1,6 +1,6 @@
-//
-// Created by timo on 12/30/23.
-//
+/*****************************************************************
+ * movement.c - Motors initialization and movement               *
+ *****************************************************************/
 
 #include <webots/robot.h>
 #include <webots/motor.h>

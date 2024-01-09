@@ -1,6 +1,6 @@
-//
-// Created by timo on 12/30/23.
-//
+/*****************************************************************
+ * sensors.c - Initializes sensors                               *
+ *****************************************************************/
 
 #include <webots/robot.h>
 #include <webots/position_sensor.h>
